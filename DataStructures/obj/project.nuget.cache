@@ -1,8 +1,31 @@
 {
   "version": 2,
-  "dgSpecHash": "BisTcxE7o+FPpegi92t3+y02RevnVA/h+J7reo9INm5armnWTgBESnuCDO6mtQ5VAshHswzaw4cRbFFkC0M4qQ==",
+  "dgSpecHash": "laoHX3/LzYTmaTrNYtzpnZCdt29bBuN71xfLBUcd0dRbYjASg/wmJXyqVh3I2mbKDhic3XFC+k2yYUAx9ew7bQ==",
   "success": true,
   "projectFilePath": "/Users/gbubemismith/Documents/coreApps/dataStructures/DataStructures/DataStructures.csproj",
-  "expectedPackageFiles": [],
+  "expectedPackageFiles": [
+    "/Users/gbubemismith/.nuget/packages/microsoft.extensions.configuration/3.1.5/microsoft.extensions.configuration.3.1.5.nupkg.sha512",
+    "/Users/gbubemismith/.nuget/packages/microsoft.extensions.configuration.abstractions/3.1.5/microsoft.extensions.configuration.abstractions.3.1.5.nupkg.sha512",
+    "/Users/gbubemismith/.nuget/packages/microsoft.extensions.configuration.binder/3.1.5/microsoft.extensions.configuration.binder.3.1.5.nupkg.sha512",
+    "/Users/gbubemismith/.nuget/packages/microsoft.extensions.configuration.commandline/3.1.5/microsoft.extensions.configuration.commandline.3.1.5.nupkg.sha512",
+    "/Users/gbubemismith/.nuget/packages/microsoft.extensions.configuration.environmentvariables/3.1.5/microsoft.extensions.configuration.environmentvariables.3.1.5.nupkg.sha512",
+    "/Users/gbubemismith/.nuget/packages/microsoft.extensions.configuration.fileextensions/3.1.5/microsoft.extensions.configuration.fileextensions.3.1.5.nupkg.sha512",
+    "/Users/gbubemismith/.nuget/packages/microsoft.extensions.configuration.json/3.1.5/microsoft.extensions.configuration.json.3.1.5.nupkg.sha512",
+    "/Users/gbubemismith/.nuget/packages/microsoft.extensions.dependencyinjection/3.1.5/microsoft.extensions.dependencyinjection.3.1.5.nupkg.sha512",
+    "/Users/gbubemismith/.nuget/packages/microsoft.extensions.dependencyinjection.abstractions/3.1.5/microsoft.extensions.dependencyinjection.abstractions.3.1.5.nupkg.sha512",
+    "/Users/gbubemismith/.nuget/packages/microsoft.extensions.fileproviders.abstractions/3.1.5/microsoft.extensions.fileproviders.abstractions.3.1.5.nupkg.sha512",
+    "/Users/gbubemismith/.nuget/packages/microsoft.extensions.fileproviders.physical/3.1.5/microsoft.extensions.fileproviders.physical.3.1.5.nupkg.sha512",
+    "/Users/gbubemismith/.nuget/packages/microsoft.extensions.filesystemglobbing/3.1.5/microsoft.extensions.filesystemglobbing.3.1.5.nupkg.sha512",
+    "/Users/gbubemismith/.nuget/packages/microsoft.extensions.http/3.1.5/microsoft.extensions.http.3.1.5.nupkg.sha512",
+    "/Users/gbubemismith/.nuget/packages/microsoft.extensions.logging/3.1.5/microsoft.extensions.logging.3.1.5.nupkg.sha512",
+    "/Users/gbubemismith/.nuget/packages/microsoft.extensions.logging.abstractions/3.1.5/microsoft.extensions.logging.abstractions.3.1.5.nupkg.sha512",
+    "/Users/gbubemismith/.nuget/packages/microsoft.extensions.logging.configuration/3.1.5/microsoft.extensions.logging.configuration.3.1.5.nupkg.sha512",
+    "/Users/gbubemismith/.nuget/packages/microsoft.extensions.logging.console/3.1.5/microsoft.extensions.logging.console.3.1.5.nupkg.sha512",
+    "/Users/gbubemismith/.nuget/packages/microsoft.extensions.logging.debug/3.1.5/microsoft.extensions.logging.debug.3.1.5.nupkg.sha512",
+    "/Users/gbubemismith/.nuget/packages/microsoft.extensions.options/3.1.5/microsoft.extensions.options.3.1.5.nupkg.sha512",
+    "/Users/gbubemismith/.nuget/packages/microsoft.extensions.options.configurationextensions/3.1.5/microsoft.extensions.options.configurationextensions.3.1.5.nupkg.sha512",
+    "/Users/gbubemismith/.nuget/packages/microsoft.extensions.primitives/3.1.5/microsoft.extensions.primitives.3.1.5.nupkg.sha512",
+    "/Users/gbubemismith/.nuget/packages/newtonsoft.json/12.0.3/newtonsoft.json.12.0.3.nupkg.sha512"
+  ],
   "logs": []
 }
