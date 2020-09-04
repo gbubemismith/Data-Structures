@@ -12,16 +12,14 @@ namespace DataStructures
 
             //array to test with
             int [] arr = {2,4,6,3,5,7,9,1,8};
-            
-            var numbers = new Array(4);
-            numbers.Insert(5);
-            numbers.Insert(10);
-            numbers.Insert(20);
-            numbers.Insert(30);
 
-            numbers.InsertAt(8, 2);
+            var list = new LinkedList();
+            list.AddLast(10);
+            list.AddLast(40);
+            list.AddLast(20);
+            list.AddLast(25);
 
-
+            Console.WriteLine(list.Contains(20));
 
             var check = SortAlgorithms.SmallestElementArr(arr);
 

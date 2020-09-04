@@ -143,7 +143,6 @@ namespace DataStructures
                //1 2 3 4 *
             items = newItems;
 
-            var check = count;//4
 
             for (int i = count - 1; i >= index; i--)
             {
