@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Linq;
 using Microsoft.Extensions.DependencyInjection;
 
@@ -19,9 +20,14 @@ namespace DataStructures
             list.AddLast(20);
             list.AddLast(25);
 
-            Console.WriteLine(list.Contains(20));
+            // list.Reverse();
 
-            var check = SortAlgorithms.SmallestElementArr(arr);
+            var i = list.GetKthFromTheEnd(3);
+
+            var check = list.ToArray();
+
+
+            //var check = SortAlgorithms.SmallestElementArr(arr);
 
             //var check = SortAlgorithms.BubbleSort(arr);
             
