@@ -153,5 +153,161 @@ namespace DataStructures
 
             count++;
         }
+
+        public static void MultiArray()
+        {
+            int[,] matrix = {
+                {1, 2, 3, 4},
+                {5, 6, 7, 8}
+            };
+
+            for (int row = 0; row < matrix.GetLength(0); row++) {
+
+                for (int col = 0; col < matrix.GetLength(1); col++) {
+                    Console.Write("|" + matrix[row, col] + " |");
+                }
+                Console.WriteLine();
+            }
+
+        }
+
+        public static void MaximalPlatform()
+        {
+            int[,] matrix = {
+                {0, 2, 4, 0, 9, 5},
+                {7, 1, 3, 3, 2, 1},
+                {1, 3, 9, 8, 5, 6},
+                {4, 6, 7, 9, 1, 0}
+            };
+
+            int bestSum = int.MinValue;
+            int bestRow = 0;
+            int bestCol = 0;
+
+            for (int row = 0; row < matrix.GetLength(0) - 1; row++)
+            {
+                for (int col = 0; col < matrix.GetLength(1) - 1; col++)
+                {
+                    //0,0 0,1
+                    //1,0 1,1
+                    int sum = matrix[row, col] + matrix[row, col + 1] + matrix[row + 1, col] 
+                                + matrix[row + 1, col + 1];
+
+                    if (sum > bestSum)
+                    {
+                        bestSum = sum;
+                        bestRow = row;
+                        bestCol = col;
+                    }
+                        
+                }
+            }
+
+
+            Console.WriteLine($"The maximal sum is {bestSum}");
+
+
+        }
+
+        public static void JaggedArray()
+        {
+            //Pascal Triangle
+            const int Height = 4;
+
+            var triangle = new int[Height + 1][];
+
+            var check = triangle.Length;
+
+            //fill each row with array
+            for (int i = 0; i < Height; i++)
+            {
+                triangle[i] = new int[i + 1];
+            }
+
+            //calculate the pascals triangle
+            triangle[0][0] = 1;
+
+            for (int row = 0; row < Height - 1; row++)
+            {
+                for (int col = 0; col <= row; col++)
+                {
+                    triangle[row + 1][col] += triangle[row][col];
+                    triangle[row + 1][col + 1] += triangle[row][col]; 
+                }
+            }
+
+
+
+        }
+
+        public static int HourGlass()
+        {
+            int[,] arr = {
+                            {1, 1, 1, 0, 0, 0},
+                            {0, 1, 0, 0, 0, 0},
+                            {1, 1, 1, 0, 0, 0},
+                            {0, 0, 2, 4, 4, 0},
+                            {0, 0, 0, 2, 0, 0},
+                            {0, 0, 1, 2, 4, 0}
+                        };
+
+            int total = int.MinValue;
+
+
+            for (int row = 0; row <= arr.GetLength(0)/2; row++)
+            {
+                for (int col = 0; col <= arr.GetLength(1)/2; col++)
+                {
+                    //top
+                    int sum = arr[row, col] + arr[row, col + 1] + arr[row, col + 2];
+
+                    //middle
+                    sum += arr[row + 1, col + 1];
+
+                    //buttom
+                    sum += arr[row + 2, col] + arr[row + 2, col + 1] + arr[row + 2 , col + 2];
+
+                    if (sum > total)
+                        total = sum;
+                }
+            }
+
+
+            return total;
+
+        }
+
+        public static int[] RotateLeft(int[] arr, int d)
+        {
+     
+            var arr2 = new int[arr.Length];
+
+            var rotateIndex = d;
+
+            int count = 0;
+
+            for (int i = 0; i < arr.Length - d; i++)
+            {
+                arr2[i] = arr[rotateIndex];
+
+                count++;
+
+                rotateIndex++;
+            }
+
+            rotateIndex = 0;
+
+
+            for (int i = count; i < arr.Length; i++)
+            {
+                arr2[i] = arr[rotateIndex];
+                rotateIndex++;
+            }
+
+            return arr2;
+            
+        }
+
+        
     }
 }

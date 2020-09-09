@@ -174,7 +174,7 @@ namespace DataStructures
         {
             // 0      1    2      3  
             //[10 -> 40 -> 20 -> 25]
-            //        *           *
+            //  *           *
             //create two pointers a and b
 
             if (IsEmpty())
@@ -190,12 +190,36 @@ namespace DataStructures
                 }
             }
 
+
             while (b != last) {
                 a = a.next;
                 b = b.next;
             }
 
             return a.value;
+        }
+
+        public int PrintMiddle()
+        {
+            //10 40 20 25
+            //*     *
+
+            //10 40 20 25
+            //*   -    *  
+            var a = first;
+
+            var b = first;
+
+
+            while (b != last && b.next != last)
+            {
+                b = b.next.next;
+                a = a.next;
+            }
+
+
+            return a.value;
+
         }
 
         private Node GetPrevious(Node node)
@@ -211,8 +235,7 @@ namespace DataStructures
 
             return null;
         }
-
-        
+  
         private bool IsEmpty() 
         {
 
