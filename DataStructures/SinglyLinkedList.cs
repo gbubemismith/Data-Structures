@@ -3,7 +3,7 @@ using System.IO;
 
 namespace DataStructures
 {
-    public class LinkedList
+    public class SinglyLinkedList
     {
         private Node first;
         private Node last;
@@ -219,6 +219,35 @@ namespace DataStructures
 
 
             return a.value;
+
+        }
+
+        public Node InsertAt(int item, int position)
+        {
+            //16 -> 13 -> 7
+            //16 -> 13 -> 1   7
+
+            var node = new Node(item);
+
+            var current = first; //16
+
+            int count = 1;
+
+            while (count < position) {
+                current = current.next; //13
+                count++;
+            }
+
+            var temp = current.next; //7
+
+            current.next = node;
+
+            current.next.next = temp;
+
+            size++;
+
+            return first;
+
 
         }
 
