@@ -251,6 +251,31 @@ namespace DataStructures
 
         }
 
+        public bool CycleInLinkedList()
+        {
+            if (first == null)
+                return false;
+
+
+            var fast = first;
+            var slow = first;
+
+            while (fast != null && fast.next != null)
+            {
+
+                fast = fast.next.next;
+
+                slow = slow.next;
+
+                if (fast == slow)
+                    return true;
+            }
+
+
+
+            return false;
+
+        }
         private Node GetPrevious(Node node)
         {
             var current = first;
