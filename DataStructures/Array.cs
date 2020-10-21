@@ -308,6 +308,88 @@ namespace DataStructures
             
         }
 
+        public static int MinimumSwaps(int[] arr)
+        {
+            //4 3 1 2
+
+            int count = 0;
+
+            //
+
+
+            for (int i = 0; i < arr.Length; i++)
+            {
+                while (arr[i] != i + 1)
+                {
+                    //swap
+                    var value = arr[i];
+
+                    var temp = arr[value - 1]; //2 
+
+                    arr[value - 1] = value;
+                    arr[i] = temp;
+
+                    count++;
+
+                }
+            }
+
+            return count;
+        }
+
+        public static void NewYearChaos(int[] arr)
+        {
+            //2 1 5 3 4
+
+            //max moves <= 2
+
+            //string print = null;
+
+            int count = 0;
+            
+
+            for (int i = 0; i < arr.Length; i++)
+            {
+                int pos = i + 1; 
+
+                while (arr[i] != pos)
+                {
+                    
+
+                    var value = arr[i]; 
+
+                    var temp = arr[value - 1]; 
+
+                    //condition
+                    if ((value - pos) > 2)
+                    {
+                        Console.WriteLine("Too chaotic");
+                        return;
+                    }
+                    else 
+                    {
+                        arr[i] = temp;
+                        arr[value - 1] = value;
+
+                        count++;
+                    }
+                        
+                }
+            }
+
+
+            Console.WriteLine(count);
+
+            
+        }
+
+        public static void KthSmallestElement(int[] arr)
+        {
+            
+        }
+
+
+
         
     }
 }
