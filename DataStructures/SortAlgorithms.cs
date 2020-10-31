@@ -105,6 +105,66 @@ namespace DataStructures
 
         }
 
+        public static void QuickSort(int[] arr, int start, int end)
+        {
+            if (start >= end)
+                return;
+
+            //partition
+            var boundary = Partition(arr, start, end);
+
+            //sort left
+            QuickSort(arr, start, boundary - 1);
+
+            //sort right
+            QuickSort(arr, boundary + 1, end);
+
+        }
+
+        public static int[] CountingSort(int[] arr, int max)
+        {
+            var count = new int[max + 1];
+
+            foreach (var item in arr)
+            {
+                count[item]++;
+            }
+
+            var k = 0;
+
+            for (int i = 0; i < count.Length; i++)
+            {
+                for (int j = 0; j < count[i]; j++)
+                {
+                    arr[k] = i;
+                    k++;
+                }
+            }
+
+
+            return arr;
+
+
+        }
+
+        private static int Partition(int[] arr, int start, int end)
+        {
+            var pivot = arr[end];
+            var boundary = start - 1;
+
+            for (int i = start; i <= end; i++)
+            {
+                if (arr[i] <= pivot)
+                {
+                    boundary++;
+                    Swap(arr, i, boundary);
+                }
+
+            }
+
+            return boundary;
+        }
+
         private static void Merge(int[] left, int[] right, int[] result)
         {
             int i = 0, j = 0, k = 0;

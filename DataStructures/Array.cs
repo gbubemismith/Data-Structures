@@ -383,9 +383,27 @@ namespace DataStructures
             
         }
 
-        public static void KthSmallestElement(int[] arr)
+        public static int[] MoveZeros(int[] arr) 
         {
-            
+            var track = 0;
+
+            for (int i = 0; i < arr.Length; i++) 
+            {
+                if (arr[i] != 0){
+                     arr[track] = arr[i];
+                     track++;
+                }
+                   
+
+            }
+
+            for (int i = track; i < arr.Length; i++) 
+            {
+                arr[i] = 0;
+            }
+
+
+            return arr;
         }
 
 

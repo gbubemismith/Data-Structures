@@ -12,14 +12,23 @@ namespace DataStructures
            
 
             //array to test with
-            int[] arr = {7, 10, 4, 3, 20, 15};
+            int[] arr = {1, 2, 3, 4, 5, 6};
 
-            SortAlgorithms.MergeSort(arr);
+            // var check = StringQuestions.CountVowels("Hello World");
+            var check = StringQuestions.ReverseWords("I am God");
+
+            // var check = SearchAlgorithms.BinarySearch(arr, 5);
+
+            // var check = SearchAlgorithms.LinearSearch(arr, 2);
+
+            // SortAlgorithms.CountingSort(arr, 5);
+
+            // var check = Array.MoveZeros(arr);
             
 
-            Console.WriteLine($"Result {string.Join(',',arr)}");
+            // Console.WriteLine($"Result {string.Join(',',check)}");
 
-            // Console.WriteLine($"Result {check}");
+            Console.WriteLine($"Result {check}");
         }
     }
 }
