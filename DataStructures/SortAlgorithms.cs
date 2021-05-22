@@ -20,14 +20,14 @@ namespace DataStructures
                     if (arr[j] < arr[j - 1])
                     {
                         Swap(arr, j, j - 1);
-                        
+
                         isSorted = false;
                     }
                 }
 
                 if (isSorted)
                     return arr;
-                
+
             }
 
             return arr;
@@ -44,7 +44,7 @@ namespace DataStructures
                     {
                         minIndex = j;
                     }
-                        
+
                 }
 
                 Swap(arr, minIndex, i);
@@ -76,8 +76,8 @@ namespace DataStructures
         public static void MergeSort(int[] arr)
         {
             if (arr.Length < 2)
-                return ;
-              
+                return;
+
 
             //divide array into two 
             var middle = arr.Length / 2;
@@ -94,14 +94,14 @@ namespace DataStructures
             for (int i = middle; i < arr.Length; i++)
                 right[i - middle] = arr[i];
 
-            
+
             //sort recursively
             MergeSort(left);
             MergeSort(right);
 
             //merge the result
             Merge(left, right, arr);
-        
+
 
         }
 
@@ -183,7 +183,7 @@ namespace DataStructures
                     k++;
                     j++;
                 }
-                    
+
             }
 
 
@@ -202,15 +202,67 @@ namespace DataStructures
                 j++;
             }
         }
-     
+
         private static void Swap(int[] arr, int index1, int index2)
         {
             var temp = arr[index1];
             arr[index1] = arr[index2];
             arr[index2] = temp;
         }
-        
 
-      
+        public static int goodSegment(List<int> badNumbers, int lower, int upper)
+        {
+            int longestSeg = 0;
+            int currentSeg = 0;
+
+            var arr = badNumbers.ToArray();
+
+            Array.Sort(arr);
+
+            for (int i = 0; i < arr.Length && arr[i] <= upper; i++)
+            {
+                currentSeg = arr[i] - lower;
+                if (currentSeg > longestSeg)
+                {
+                    longestSeg = currentSeg;
+                }
+
+                lower = arr[i] + 1;
+            }
+
+            currentSeg = upper - lower + 1;
+
+            if (currentSeg > longestSeg)
+            {
+                longestSeg = currentSeg;
+            }
+
+
+            return longestSeg;
+
+
+        }
+
+        public static Dictionary<String, Int32> freqCnt(List<String> data)
+        {
+
+            Dictionary<String, Int32> result = new Dictionary<String, Int32>();
+            for (Int32 i = 0; i < data.Count; i++)
+            {
+                if (result.ContainsKey(data[i]))
+                {
+                    Int32 value = 0;
+                    result.TryGetValue(data[i], out value);
+                    result.Remove(data[i]); // -- otherwise an exception on the next line?!?
+                    result.Add(data[i], value + 1);
+                }
+                else
+                    result.Add(data[i], 1);
+            }
+            return result;
+        }
+
+
+
     }
 }

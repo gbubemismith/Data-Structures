@@ -8,25 +8,20 @@ namespace DataStructures
     class Program
     {
         static void Main(string[] args)
-        {   
-           
+        {
+
 
             //array to test with
-            int[] arr = {1, 2, 3, 4, 5, 6};
+            // int[] arr = {1, 2, 3, 4, 5, 6};
 
-            // var check = StringQuestions.CountVowels("Hello World");
-            var check = StringQuestions.ReverseWords("I am God");
 
-            // var check = SearchAlgorithms.BinarySearch(arr, 5);
+            var c = SortAlgorithms.freqCnt(new List<string> { "a", "a", "c", "d" });
 
-            // var check = SearchAlgorithms.LinearSearch(arr, 2);
+            var check = Sets.firstRepeatedWord("had had quite enough of this nonsense");
 
-            // SortAlgorithms.CountingSort(arr, 5);
-
-            // var check = Array.MoveZeros(arr);
-            
 
             // Console.WriteLine($"Result {string.Join(',',check)}");
+
 
             Console.WriteLine($"Result {check}");
         }
