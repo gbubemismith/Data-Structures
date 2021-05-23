@@ -12,12 +12,13 @@ namespace DataStructures
 
 
             //array to test with
-            // int[] arr = {1, 2, 3, 4, 5, 6};
+            int[] arr = { 2, 1, 5, 1, 3, 2 };
 
+            var check = ArrayQuestions.MaximumSum(3, arr);
 
-            var c = SortAlgorithms.freqCnt(new List<string> { "a", "a", "c", "d" });
+            // var c = SortAlgorithms.freqCnt(new List<string> { "a", "a", "c", "d" });
 
-            var check = Sets.firstRepeatedWord("had had quite enough of this nonsense");
+            // var check = Sets.firstRepeatedWord("had had quite enough of this nonsense");
 
 
             // Console.WriteLine($"Result {string.Join(',',check)}");

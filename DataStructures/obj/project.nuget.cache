@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "laoHX3/LzYTmaTrNYtzpnZCdt29bBuN71xfLBUcd0dRbYjASg/wmJXyqVh3I2mbKDhic3XFC+k2yYUAx9ew7bQ==",
+  "dgSpecHash": "la2kq8s20TQM7j3fNBgegEujAMWWcwV88xNPX/S9jeC3KPYq7na89LOQZnQveX5Rk+GzVBor3VLoEn6Syte+sA==",
   "success": true,
   "projectFilePath": "/Users/gbubemismith/Documents/coreApps/dataStructures/DataStructures/DataStructures.csproj",
   "expectedPackageFiles": [
@@ -25,7 +25,8 @@
     "/Users/gbubemismith/.nuget/packages/microsoft.extensions.options/3.1.5/microsoft.extensions.options.3.1.5.nupkg.sha512",
     "/Users/gbubemismith/.nuget/packages/microsoft.extensions.options.configurationextensions/3.1.5/microsoft.extensions.options.configurationextensions.3.1.5.nupkg.sha512",
     "/Users/gbubemismith/.nuget/packages/microsoft.extensions.primitives/3.1.5/microsoft.extensions.primitives.3.1.5.nupkg.sha512",
-    "/Users/gbubemismith/.nuget/packages/newtonsoft.json/12.0.3/newtonsoft.json.12.0.3.nupkg.sha512"
+    "/Users/gbubemismith/.nuget/packages/newtonsoft.json/12.0.3/newtonsoft.json.12.0.3.nupkg.sha512",
+    "/Users/gbubemismith/.nuget/packages/microsoft.aspnetcore.app.ref/3.1.10/microsoft.aspnetcore.app.ref.3.1.10.nupkg.sha512"
   ],
   "logs": []
 }
