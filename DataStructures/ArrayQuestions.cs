@@ -1,3 +1,7 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+
 namespace DataStructures
 {
     public class ArrayQuestions
@@ -69,6 +73,74 @@ namespace DataStructures
             }
 
             return maxSum;
+        }
+
+        public static int SmallestSubarrayLength(int s, int[] arr)
+        {
+            int windowStart = 0;
+            int windowSum = 0;
+            int minLength = int.MaxValue;
+
+            for (int windowEnd = 0; windowEnd < arr.Length; windowEnd++)
+            {
+                windowSum += arr[windowEnd];
+
+                while (windowSum >= s)
+                {
+                    int count = windowEnd - windowStart + 1;
+                    //get the minimum length
+                    if (minLength > count)
+                        minLength = count;
+
+                    windowSum -= arr[windowStart];
+                    windowStart++;
+                }
+            }
+
+            return minLength == int.MaxValue ? 0 : minLength;
+        }
+
+        public static int MaxFruitCountOfTwoTypes(char[] arr)
+        {
+            var map = new Dictionary<char, int>();
+
+            int windowStart = 0, maxLength = 0;
+
+            for (int windowEnd = 0; windowEnd < arr.Length; windowEnd++)
+            {
+                var fruitValue = arr[windowEnd];
+
+                if (map.TryGetValue(fruitValue, out var val))
+                    map[fruitValue] = val + 1;
+                else
+                    map.Add(fruitValue, 1);
+
+                //while fruits type not more than 2
+                while (map.Count > 2)
+                {
+                    var previousFruitEntered = arr[windowStart];
+                    map[previousFruitEntered] = map[previousFruitEntered] - 1;
+
+                    if (map[previousFruitEntered] == 0)
+                        map.Remove(previousFruitEntered);
+
+                    windowStart++;
+                }
+
+                maxLength = Math.Max(maxLength, windowEnd - windowStart + 1);
+
+            }
+
+            // //add values here
+            // foreach (var item in map)
+            // {
+            //     maxLength += item.Value;
+            // }
+
+            //using linq
+            // maxLength = map.Sum(x => x.Value);
+
+            return maxLength;
         }
     }
 }

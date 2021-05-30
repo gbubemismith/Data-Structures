@@ -1,4 +1,5 @@
 using System;
+using System.Collections.Concurrent;
 using System.Collections.Generic;
 using System.Text;
 
@@ -86,7 +87,7 @@ namespace DataStructures
         {
             var words = sentence.Split(" ");
 
-            for (int i = 0; i < words.Length; i++) 
+            for (int i = 0; i < words.Length; i++)
             {
                 words[i] = words[i].Substring(0, 1).ToUpper() + words[i].Substring(1);
             }
@@ -137,7 +138,7 @@ namespace DataStructures
         public static string maxSubstring(string s)
         {
             string maxSub = "";
-            
+
             for (int i = 0; i < s.Length; i++)
             {
                 if (maxSub.CompareTo(s.Substring(i)) <= 0)
@@ -145,8 +146,79 @@ namespace DataStructures
                     maxSub = s.Substring(i);
                 }
             }
-            
+
             return maxSub;
+        }
+
+        //using sliding window pattern
+        public static int FindSubstringLength(int k, string str)
+        {
+            if (String.IsNullOrEmpty(str) || str.Length < k)
+                throw new ArgumentException("string does not meet criteria");
+
+
+            var map = new Dictionary<char, int>();
+            // var mapC = new ConcurrentDictionary<char, int>();
+
+
+            int windowStart = 0, maxLength = 0;
+
+            for (int windowEnd = 0; windowEnd < str.Length; windowEnd++)
+            {
+                var charValue = str[windowEnd];
+
+                //add key and set value to dictionary
+                if (map.TryGetValue(charValue, out var val))
+                    map[charValue] = val + 1;
+                else
+                    map.Add(charValue, 1);
+
+                //while distinct count greater than k
+                while (map.Count > k)
+                {
+                    var checkCharValue = str[windowStart];
+                    map[checkCharValue] = map[checkCharValue] - 1;
+
+                    if (map[checkCharValue] == 0)
+                        map.Remove(checkCharValue);
+
+                    windowStart++;
+                }
+
+                maxLength = Math.Max(maxLength, windowEnd - windowStart + 1);
+            }
+
+            return maxLength;
+        }
+
+        public static int NoRepeatSubstring(string str)
+        {
+            int windowStart = 0;
+            int maxLength = 0;
+
+            var map = new Dictionary<char, int>();
+
+            for (int windowEnd = 0; windowEnd < str.Length; windowEnd++)
+            {
+                var charValue = str[windowEnd];
+
+                //check if value exists and update index
+                if (map.ContainsKey(charValue))
+                {
+                    windowStart = Math.Max(windowStart, map[charValue] + 1);
+                    map[charValue] = windowEnd;
+                }
+                else
+                {
+                    map.Add(charValue, windowEnd);
+                }
+
+                maxLength = Math.Max(maxLength, windowEnd - windowStart + 1);
+
+            }
+
+            return maxLength;
+
         }
 
 
