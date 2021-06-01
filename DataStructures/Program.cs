@@ -12,12 +12,12 @@ namespace DataStructures
 
 
             //array to test with
-            // int[] arr = { 2, 1, 5, 2, 3, 2 };
-            var arr = new char[] { 'A', 'B', 'C', 'B', 'B', 'C' };
+            int[] arr = { 0, 1, 1, 0, 0, 0, 1, 1, 0, 1, 1 };
+            // var arr = new char[] { 'A', 'B', 'C', 'B', 'B', 'C' };
 
-            // var check = ArrayQuestions.MaxFruitCountOfTwoTypes(arr);
+            var check = ArrayQuestions.LongestSubarrayReplacement(arr, 2);
 
-            var check = StringQuestions.NoRepeatSubstring("aabccbb");
+            // var check = StringQuestions.LongestSubstringReplacement("aabccbb", 2);
 
             // var c = SortAlgorithms.freqCnt(new List<string> { "a", "a", "c", "d" });
 

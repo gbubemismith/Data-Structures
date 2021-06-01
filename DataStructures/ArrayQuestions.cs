@@ -142,5 +142,53 @@ namespace DataStructures
 
             return maxLength;
         }
+
+        public static int LongestSubarrayReplacement(int[] arr, int k)
+        {
+            int windowStart = 0;
+            // int maxLength = 0, maxOnesCount = 0;
+
+            // //[0, 1, 1, 0, 0, 0, 1, 1, 0, 1, 1]
+            // for (int windowEnd = 0; windowEnd < arr.Length; windowEnd++)
+            // {
+            //     if (arr[windowEnd] == 1)
+            //         maxOnesCount++;
+
+
+            //     if (windowEnd - windowStart + 1 - maxOnesCount > k)
+            //     {
+            //         if (arr[windowStart] == 1)
+            //             maxOnesCount--;
+
+            //         windowStart++;
+            //     }
+
+            //     maxLength = Math.Max(maxLength, windowEnd - windowStart + 1);
+            // }
+
+            //ALTERNATIVE
+            int maxLength = 0, maxZerosCount = 0;
+
+            //[0, 1, 1, 0, 0, 0, 1, 1, 0, 1, 1]
+            for (int windowEnd = 0; windowEnd < arr.Length; windowEnd++)
+            {
+                if (arr[windowEnd] == 0)
+                    maxZerosCount++;
+
+
+                if (maxZerosCount > k)
+                {
+                    if (arr[windowStart] == 0)
+                        maxZerosCount--;
+
+                    windowStart++;
+                }
+
+                maxLength = Math.Max(maxLength, windowEnd - windowStart + 1);
+            }
+
+
+            return maxLength;
+        }
     }
 }

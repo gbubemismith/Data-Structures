@@ -221,6 +221,42 @@ namespace DataStructures
 
         }
 
+        public static int LongestSubstringReplacement(string str, int k)
+        {
+            //length of a window = windowEnd - windowStart + 1
+            //aabcc
+            //2 1 2 
+
+            int windowStart = 0;
+            int maxLength = 0, maxRepeatLetterCount = 0;
+            var map = new Dictionary<char, int>();
+
+            for (int windowEnd = 0; windowEnd < str.Length; windowEnd++)
+            {
+                var charValue = str[windowEnd];
+
+                if (map.TryGetValue(charValue, out var val))
+                    map[charValue] = val + 1;
+                else
+                    map.Add(charValue, 1);
+
+                maxRepeatLetterCount = Math.Max(maxRepeatLetterCount, map[charValue]);
+
+                if (windowEnd - windowStart + 1 - maxRepeatLetterCount > k)
+                {
+                    char leftChar = str[windowStart];
+                    map[leftChar] = map[leftChar] - 1;
+                    windowStart++;
+                }
+
+                int windowLength = windowEnd - windowStart + 1;
+
+                maxLength = Math.Max(maxLength, windowEnd - windowStart + 1);
+            }
+
+            return maxLength;
+        }
+
 
 
     }
