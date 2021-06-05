@@ -257,6 +257,50 @@ namespace DataStructures
             return maxLength;
         }
 
+        public static bool FindPermutation(string str, string pattern)
+        {
+            int windowStart = 0, matched = 0;
+
+            var patternMap = new Dictionary<char, int>();
+
+            //add pattern to a map
+            for (int i = 0; i < pattern.Length; i++)
+                patternMap.Add(pattern[i], 1);
+
+            for (int windowEnd = 0; windowEnd < str.Length; windowEnd++)
+            {
+                var latestChar = str[windowEnd];
+                //check if str exists in pattern map
+                if (patternMap.ContainsKey(str[windowEnd]))
+                {
+                    //decrement frequency
+                    patternMap[latestChar] = patternMap[latestChar] - 1;
+
+                    //if the key is  = 0 that means it has been matched
+                    if (patternMap[latestChar] == 0)
+                        matched++;
+                }
+
+                if (matched == patternMap.Count)
+                    return true;
+
+                if (windowEnd >= pattern.Length - 1)
+                {
+                    var prevChar = str[windowStart];
+
+                    if (patternMap.ContainsKey(prevChar))
+                    {
+                        if (patternMap[prevChar] == 0)
+                            matched--;
+
+                        patternMap[prevChar] = patternMap[prevChar] + 1;
+                    }
+                }
+            }
+
+            return false;
+        }
+
 
 
     }

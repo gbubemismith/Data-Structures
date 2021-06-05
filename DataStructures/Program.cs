@@ -15,9 +15,9 @@ namespace DataStructures
             int[] arr = { 0, 1, 1, 0, 0, 0, 1, 1, 0, 1, 1 };
             // var arr = new char[] { 'A', 'B', 'C', 'B', 'B', 'C' };
 
-            var check = ArrayQuestions.LongestSubarrayReplacement(arr, 2);
+            // var check = ArrayQuestions.LongestSubarrayReplacement(arr, 2);
 
-            // var check = StringQuestions.LongestSubstringReplacement("aabccbb", 2);
+            var check = StringQuestions.FindPermutation("aaacb", "abc");
 
             // var c = SortAlgorithms.freqCnt(new List<string> { "a", "a", "c", "d" });
 
