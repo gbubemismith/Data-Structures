@@ -17,7 +17,7 @@ namespace DataStructures
 
             // var check = ArrayQuestions.LongestSubarrayReplacement(arr, 2);
 
-            var check = StringQuestions.FindPermutation("aaacb", "abc");
+            var check = StringQuestions.MinimumWindowSubstring("aabdec", "abc");
 
             // var c = SortAlgorithms.freqCnt(new List<string> { "a", "a", "c", "d" });
 

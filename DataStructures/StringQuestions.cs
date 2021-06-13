@@ -287,6 +287,7 @@ namespace DataStructures
                 if (windowEnd >= pattern.Length - 1)
                 {
                     var prevChar = str[windowStart];
+                    windowStart++;
 
                     if (patternMap.ContainsKey(prevChar))
                     {
@@ -299,6 +300,99 @@ namespace DataStructures
             }
 
             return false;
+        }
+
+        public static List<int> PatternAnagrams(string str, string pattern)
+        {
+            var matchedIndexes = new List<int>();
+            int windowStart = 0, matched = 0;
+
+            var patternMap = new Dictionary<char, int>();
+            for (int i = 0; i < pattern.Length; i++)
+                patternMap.Add(pattern[i], 1);
+
+            //ppqp
+
+            for (int windowEnd = 0; windowEnd < str.Length; windowEnd++)
+            {
+                var currentChar = str[windowEnd];
+
+                if (patternMap.ContainsKey(currentChar))
+                {
+                    patternMap[currentChar] = patternMap[currentChar] - 1;
+
+                    if (patternMap[currentChar] == 0)
+                        matched++;
+                }
+
+                if (matched == patternMap.Count)
+                    matchedIndexes.Add(windowStart);
+
+
+                if (windowEnd >= pattern.Length - 1)
+                {
+                    var prevChar = str[windowStart];
+                    windowStart++;
+
+                    if (patternMap.ContainsKey(prevChar))
+                    {
+                        if (patternMap[prevChar] == 0)
+                            matched--;
+
+                        patternMap[prevChar] = patternMap[prevChar] + 1;
+                    }
+                }
+
+            }
+
+            return matchedIndexes;
+        }
+
+        public static string MinimumWindowSubstring(string str, string pattern)
+        {
+            var map = new Dictionary<char, int>();
+
+            foreach (var item in pattern)
+            {
+                map.Add(item, 1);
+            }
+
+            int windowStart = 0, matched = 0, minLength = str.Length - 1, subStrStart = 0;
+
+            for (int windowEnd = 0; windowEnd < str.Length; windowEnd++)
+            {
+                var currentChar = str[windowEnd];
+
+                if (map.ContainsKey(currentChar))
+                {
+                    map[currentChar] = map[currentChar] - 1;
+
+                    if (map[currentChar] >= 0)
+                        matched++;
+                }
+
+
+                while (matched == pattern.Length)
+                {
+                    if (minLength > windowEnd - windowStart + 1)
+                    {
+                        minLength = windowEnd - windowStart + 1;
+                        subStrStart = windowStart;
+                    }
+
+                    var leftChar = str[windowEnd];
+                    if (map.ContainsKey(leftChar))
+                    {
+                        if (map[leftChar] == 0)
+                            matched--;
+
+                        map[leftChar] = map[leftChar] + 1;
+                    }
+                }
+            }
+
+
+            return minLength > str.Length ? "" : str.Substring(subStrStart, subStrStart + minLength);
         }
 
 
