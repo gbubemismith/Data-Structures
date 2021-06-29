@@ -190,5 +190,88 @@ namespace DataStructures
 
             return maxLength;
         }
+
+        //using two pointers pattern 
+        public static int[] PairArraySum(int[] arr, int targetSum)
+        {
+            int left = 0, right = arr.Length - 1;
+
+            while (left < right)
+            {
+                int sum = arr[left] + arr[right];
+
+                if (sum == targetSum)
+                    return new int[] { arr[left], arr[right] };
+
+                if (sum > targetSum)
+                    right--;
+                else
+                    left++;
+
+            }
+
+            return new int[] { -1, -1 };
+        }
+
+        public static int RemoveDuplicates(int[] arr)
+        {
+            int nextNoDuplicate = 1;
+
+            for (int i = 1; i < arr.Length; i++)
+            {
+                if (arr[nextNoDuplicate - 1] != arr[i])
+                {
+                    arr[nextNoDuplicate] = arr[i];
+                    nextNoDuplicate++;
+                }
+            }
+
+            return nextNoDuplicate;
+        }
+
+        public static int RemoveKey(int[] arr, int key)
+        {
+            //Input: [3, 2, 3, 6, 3, 10, 9, 3], Key=3
+            int nextElement = 0;
+
+            for (int i = 0; i < arr.Length; i++)
+            {
+                if (arr[i] != key)
+                {
+                    arr[nextElement] = arr[i];
+                    nextElement++;
+                }
+            }
+
+            return nextElement;
+        }
+
+        public static int[] MakeSquares(int[] arr)
+        {
+            var n = arr.Length;
+            var squaresArr = new int[n];
+            int highestIndx = n - 1;
+            int left = 0, right = arr.Length - 1;
+
+            while (left < right)
+            {
+                int leftSquare = arr[left] * arr[left];
+                int rightSquare = arr[right] * arr[right];
+
+                if (leftSquare > rightSquare)
+                {
+                    squaresArr[highestIndx--] = leftSquare;
+                    left++;
+                }
+                else
+                {
+                    squaresArr[highestIndx--] = rightSquare;
+                    right--;
+                }
+            }
+
+            return squaresArr;
+        }
+
     }
 }
