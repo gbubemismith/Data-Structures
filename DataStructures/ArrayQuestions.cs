@@ -273,5 +273,45 @@ namespace DataStructures
             return squaresArr;
         }
 
+        public static List<List<int>> TripletsSumZero(int[] arr)
+        {
+            Array.Sort(arr);
+
+            var tripletsList = new List<List<int>>();
+
+            for (int i = 0; i < arr.Length - 2; i++)
+            {
+                //skip duplicates in list
+                if (i > 0 && arr[i] == arr[i - 1])
+                    continue;
+
+                int right = arr.Length - 1;
+                int left = i + 1;
+                int sum = 0 - arr[i];
+
+                while (left < right)
+                {
+                    int currentSum = arr[left] + arr[right];
+                    if (currentSum == sum)
+                    {
+                        tripletsList.Add(new List<int> { -sum, arr[left], arr[right] });
+                        left++;
+                        right--;
+                        //skip duplicates
+                        while (left < right && arr[left] == arr[left - 1])
+                            left++;
+                        while (left < right && arr[right] == arr[right + 1])
+                            right--;
+                    }
+                    else if (currentSum > sum)
+                        right--;
+                    else
+                        left++;
+                }
+            }
+
+            return tripletsList;
+        }
+
     }
 }

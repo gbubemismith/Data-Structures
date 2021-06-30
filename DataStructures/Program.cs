@@ -12,10 +12,10 @@ namespace DataStructures
 
 
             //array to test with
-            int[] arr = { -2, -1, 0, 2, 3 };
+            int[] arr = { -3, 0, 1, 2, -1, 1, -2 };
             // var arr = new char[] { 'A', 'B', 'C', 'B', 'B', 'C' };
 
-            var check = ArrayQuestions.MakeSquares(arr);
+            var check = ArrayQuestions.TripletsSumZero(arr);
 
             // var check = StringQuestions.MinimumWindowSubstring("aabdec", "abc");
 
