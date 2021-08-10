@@ -1,6 +1,7 @@
 using System;
 using System.Collections.Concurrent;
 using System.Collections.Generic;
+using System.Linq;
 using System.Text;
 
 namespace DataStructures
@@ -371,7 +372,6 @@ namespace DataStructures
                         matched++;
                 }
 
-
                 while (matched == pattern.Length)
                 {
                     if (minLength > windowEnd - windowStart + 1)
@@ -395,7 +395,77 @@ namespace DataStructures
             return minLength > str.Length ? "" : str.Substring(subStrStart, subStrStart + minLength);
         }
 
+        public static string RearrangeWords(string str = null)
+        {
+            str = "Four score and seven years ago our fathers brought forth upon this continent a new nation, conceived in liberty and dedicated to the proposition that all men are created equal";
 
+            var splitWords = str.Split(' ');
+            var sb = new StringBuilder();
+            int lineLength = 0;
+
+            for (int i = 0; i < splitWords.Length; i++)
+            {
+                var word = splitWords[i] + " ";
+
+                if (lineLength + word.Length > 13 && word.Remove(word.Length - 1).Length + lineLength > 13)
+                {
+
+                    sb.Append("\n");
+                    lineLength = 0;
+
+                }
+
+                sb.Append(word);
+                lineLength += word.Length;
+            }
+
+
+            return sb.ToString();
+
+        }
+
+        public static List<int> ConcatenationWords(string s, string[] words)
+        {
+            var wordMap = new Dictionary<string, int>();
+
+            foreach (var word in words)
+            {
+                if (wordMap.ContainsKey(word))
+                    wordMap[word] += 1;
+                else
+                    wordMap.Add(word, 1);
+            }
+            //total words in array
+            var wordsCount = words.Length;
+            //length of individual word
+            var wordLength = words[0].Length;
+            int matchCount = 0;
+            int windowStart = 0;
+
+            for (int windowEnd = 0; windowEnd < s.Length; windowEnd++)
+            {
+                var sub = s.Substring(windowEnd, wordLength);
+
+                if (wordMap.ContainsKey(sub))
+                {
+                    wordMap[sub] -= 1;
+                    matchCount++;
+                }
+
+                while (matchCount < wordsCount)
+                {
+                    windowEnd += wordLength;
+
+
+                }
+            }
+            // this question is hard abeg
+
+
+            return new List<int>();
+        }
+
+        
 
     }
 }

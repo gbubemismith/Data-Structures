@@ -313,5 +313,84 @@ namespace DataStructures
             return tripletsList;
         }
 
+        public static int Test(string s)
+        {
+            int windowStart = 0;
+            int maxLength = 0;
+            var map = new Dictionary<char, int>();
+
+            for (int windowEnd = 0; windowEnd < s.Length; windowEnd++)
+            {
+                var rightChar = s[windowEnd];
+
+                if (map.ContainsKey(rightChar))
+                {
+
+                    windowStart = Math.Max(windowStart, map[rightChar] + 1);
+                    map[rightChar] = windowEnd;
+                }
+                else
+                {
+                    map.Add(rightChar, windowEnd);
+                }
+
+                maxLength = Math.Max(maxLength, windowEnd - windowStart + 1);
+            }
+
+            return maxLength;
+        }
+
+        public static bool ContainsDuplicateII(int[] nums, int k)
+        {
+            var map = new Dictionary<int, int>();
+
+            for (int windowEnd = 0; windowEnd < nums.Length; windowEnd++)
+            {
+                var rightNum = nums[windowEnd];
+
+                if (map.ContainsKey(rightNum))
+                {
+                    if (windowEnd - map[rightNum] <= k)
+                        return true;
+
+                    map[rightNum] = windowEnd;
+                }
+                else
+                {
+                    map.Add(rightNum, windowEnd);
+                }
+            }
+
+            return false;
+        }
+
+        public static double MaximumAverageI(int[] nums, int k)
+        {
+            int windowStart = 0;
+            double maxSum = 0;
+            double maxAvg = double.MinValue;
+
+            //[1,12,-5,-6,50,3]
+
+            for (int windowEnd = 0; windowEnd < nums.Length; windowEnd++)
+            {
+                maxSum += nums[windowEnd];
+
+                if (windowEnd >= k - 1)
+                {
+                    var res = maxSum / k;
+
+                    maxAvg = Math.Max(maxAvg, res);
+
+                    maxSum -= nums[windowStart];
+                    windowStart++;
+
+
+                }
+            }
+
+            return maxAvg;
+        }
+
     }
 }
