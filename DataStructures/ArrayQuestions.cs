@@ -215,18 +215,20 @@ namespace DataStructures
 
         public static int RemoveDuplicates(int[] arr)
         {
-            int nextNoDuplicate = 1;
+            //Input: [2, 3, 3, 3, 6, 9, 9]
+
+            int nextNonDuplicate = 1;
 
             for (int i = 1; i < arr.Length; i++)
             {
-                if (arr[nextNoDuplicate - 1] != arr[i])
+                if (arr[nextNonDuplicate - 1] != arr[i])
                 {
-                    arr[nextNoDuplicate] = arr[i];
-                    nextNoDuplicate++;
+                    arr[nextNonDuplicate] = arr[i];
+                    nextNonDuplicate++;
                 }
             }
 
-            return nextNoDuplicate;
+            return nextNonDuplicate;
         }
 
         public static int RemoveKey(int[] arr, int key)
@@ -253,7 +255,7 @@ namespace DataStructures
             int highestIndx = n - 1;
             int left = 0, right = arr.Length - 1;
 
-            while (left < right)
+            while (left <= right)
             {
                 int leftSquare = arr[left] * arr[left];
                 int rightSquare = arr[right] * arr[right];
@@ -313,28 +315,39 @@ namespace DataStructures
             return tripletsList;
         }
 
-        public static int Test(string s)
+        public static int Test(char[] arr)
         {
-            int windowStart = 0;
-            int maxLength = 0;
-            var map = new Dictionary<char, int>();
+            int windowStart = 0, maxLength = 0;
 
-            for (int windowEnd = 0; windowEnd < s.Length; windowEnd++)
+            var fruits = new Dictionary<char, int>();
+
+            for (int windowEnd = 0; windowEnd < arr.Length; windowEnd++)
             {
-                var rightChar = s[windowEnd];
+                var rightChar = arr[windowEnd];
 
-                if (map.ContainsKey(rightChar))
+                if (fruits.ContainsKey(rightChar))
                 {
-
-                    windowStart = Math.Max(windowStart, map[rightChar] + 1);
-                    map[rightChar] = windowEnd;
+                    fruits[rightChar] += 1;
                 }
                 else
                 {
-                    map.Add(rightChar, windowEnd);
+                    fruits.Add(rightChar, 1);
+                }
+
+
+                while (fruits.Count > 2)
+                {
+                    var leftChar = arr[windowStart];
+                    fruits[leftChar] -= 1;
+
+                    if (fruits[leftChar] == 0)
+                        fruits.Remove(leftChar);
+
+                    windowStart++;
                 }
 
                 maxLength = Math.Max(maxLength, windowEnd - windowStart + 1);
+
             }
 
             return maxLength;
@@ -390,6 +403,23 @@ namespace DataStructures
             }
 
             return maxAvg;
+        }
+
+        public static int numPlayers(int k, List<int> scores)
+        {
+            // var collections = scores.GroupBy(a => a).Select(a => new { key = a.Key, value = a.Count() }).OrderByDescending(x => x.key);
+            // int rank = 1, ans = 0;
+            // foreach (var item in collections)
+            // {
+            //     if (rank > k) break;
+            //     ans += item.value;
+            //     rank += item.value;
+            // }
+            // return ans;
+            var ranks = new List<int>();
+            var groups = scores.Where(f => f != 0).OrderByDescending(f => f).GroupBy(g => g).ToList();
+
+            return 0;
         }
 
     }

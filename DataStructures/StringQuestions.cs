@@ -465,7 +465,89 @@ namespace DataStructures
             return new List<int>();
         }
 
-        
+        public static string LongestNiceSubstring(string s)
+        {
+            var map = new Dictionary<char, int>();
+            //"abABB"
+            // Input: s = "YazaAay"
+            // Output: "aAa"
+
+            //y, 0 --- s, e -> 0
+            //a, 1 --- s = 0, e 1
+            //z, 2
+            //a, 3
+            //A, 4
+            //a, 5
+            //y, 6
+
+            //abABBc
+            int windowStart = 0;
+
+            for (int windowEnd = 0; windowEnd < s.Length; windowEnd++)
+            {
+                var rightChar = s[windowEnd];
+
+                if (map.ContainsKey(rightChar))
+                {
+                    map[rightChar] = map[rightChar] + 1;
+                }
+                else
+                {
+                    map.Add(rightChar, 1);
+                }
+
+                // while ()
+            }
+
+            return "yes";
+        }
+
+        public static string PrintAllOdd(string input)
+        {
+            /**input 1 10 
+                    40  50 **/
+            var firstArr = new List<string>();
+            var secondArr = new List<string>();
+
+            var map = new Dictionary<int, List<string>>();
+
+            string check = "1 10@40 50".Replace("@", System.Environment.NewLine);
+
+            var arr = check.Split('\n');
+
+            var firstRange = arr[0].Split(' ');
+            var secondRange = arr[1].Split(' ');
+
+            for (int i = int.Parse(firstRange[0]); i <= int.Parse(firstRange[1]); i++)
+            {
+                if (i % 2 != 0)
+                    firstArr.Add(i.ToString());
+            }
+
+            map.Add(1, firstArr);
+
+            for (int i = int.Parse(secondRange[0]); i <= int.Parse(secondRange[1]); i++)
+            {
+                if (i % 2 != 0)
+                    secondArr.Add(i.ToString());
+            }
+
+            map.Add(2, secondArr);
+
+            var rFirst = string.Join(" ", map[1]);
+            var rSecond = string.Join(" ", map[2]);
+
+            var resp = $"{rFirst} \n {rSecond}";
+
+            Console.WriteLine(resp);
+
+            return check;
+        }
+
+
+
+
+
 
     }
 }

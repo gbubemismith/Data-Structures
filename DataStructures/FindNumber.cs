@@ -47,6 +47,28 @@ namespace DataStructures
             return new int[] { };
         }
 
+        public static int[] TwoSumPointer(int[] arr, int target)
+        {
+
+            int left = 0, right = arr.Length - 1;
+
+            while (left < right)
+            {
+                int currentSum = arr[left] + arr[right];
+
+                if (currentSum == target)
+                    return new int[] { left, right };
+
+                if (target > currentSum)
+                    left++;
+                else
+                    right--;
+            }
+
+            return new int[] { -1, -1 };
+
+        }
+
         public static int GetSequenceSum(int i, int j, int k)
         {
             int sum1 = 0;
