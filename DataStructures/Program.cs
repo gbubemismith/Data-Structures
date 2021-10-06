@@ -12,12 +12,12 @@ namespace DataStructures
 
 
             //array to test with
-            int[] arr = { -2, -1, 0, 2, 3 };
+            int[] arr = { 5, 7, 1, 2, 8, 4, 3 };
             // var arr = new char[] { 'A', 'B', 'C', 'B', 'B', 'C' };
 
-            var check = StringQuestions.PrintAllOdd("");
+            // var check = StringQuestions.GetRecipient("@User_One @UserABC! Have you seen this from @Userxyz?", 2);
 
-            // var check = ArrayQuestions.MakeSquares(arr);
+            var check = ArrayQuestions.TargetSum(10, arr);
 
             // var check = StringQuestions.codeHere("Four score and seven years ago our fathers brought forth upon this continent a new nation, conceived in liberty and dedicated to the proposition that all men are created equal");
 

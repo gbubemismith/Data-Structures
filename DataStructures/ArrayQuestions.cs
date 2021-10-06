@@ -248,7 +248,7 @@ namespace DataStructures
             return nextElement;
         }
 
-        public static int[] MakeSquares(int[] arr)
+        public static int[] MakeSquaresSorted(int[] arr)
         {
             var n = arr.Length;
             var squaresArr = new int[n];
@@ -317,40 +317,7 @@ namespace DataStructures
 
         public static int Test(char[] arr)
         {
-            int windowStart = 0, maxLength = 0;
-
-            var fruits = new Dictionary<char, int>();
-
-            for (int windowEnd = 0; windowEnd < arr.Length; windowEnd++)
-            {
-                var rightChar = arr[windowEnd];
-
-                if (fruits.ContainsKey(rightChar))
-                {
-                    fruits[rightChar] += 1;
-                }
-                else
-                {
-                    fruits.Add(rightChar, 1);
-                }
-
-
-                while (fruits.Count > 2)
-                {
-                    var leftChar = arr[windowStart];
-                    fruits[leftChar] -= 1;
-
-                    if (fruits[leftChar] == 0)
-                        fruits.Remove(leftChar);
-
-                    windowStart++;
-                }
-
-                maxLength = Math.Max(maxLength, windowEnd - windowStart + 1);
-
-            }
-
-            return maxLength;
+            return -1;
         }
 
         public static bool ContainsDuplicateII(int[] nums, int k)
@@ -420,6 +387,46 @@ namespace DataStructures
             var groups = scores.Where(f => f != 0).OrderByDescending(f => f).GroupBy(g => g).ToList();
 
             return 0;
+        }
+
+        /// <summary>
+        /// Find missing number from list of int
+        /// </summary>
+        /// <param name="arr"></param>
+        /// <returns></returns>
+        public static int MissingNumber(int[] arr)
+        {
+            //calculate all numbers in arr
+            int totalSum = 0;
+
+            foreach (var number in arr)
+            {
+                totalSum += number;
+            }
+
+            //assume correct number of elements -- missing is 1
+            var totalElements = arr.Length + 1;
+
+            //calculate actual sum using arithmetic series formula
+            var actualSum = (totalElements * (totalElements + 1)) / 2;
+
+            return actualSum - totalSum;
+        }
+
+        public static bool TargetSum(int target, int[] arr)
+        {
+            var set = new HashSet<int>();
+
+            foreach (var item in arr)
+            {
+                if (set.Contains(target - item))
+                    return true;
+
+                set.Add(item);
+            }
+
+            return false;
+
         }
 
     }

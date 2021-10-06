@@ -3,7 +3,6 @@
 /Users/gbubemismith/Documents/coreApps/dataStructures/DataStructures/bin/Debug/netcoreapp3.1/DataStructures.runtimeconfig.dev.json
 /Users/gbubemismith/Documents/coreApps/dataStructures/DataStructures/bin/Debug/netcoreapp3.1/DataStructures.dll
 /Users/gbubemismith/Documents/coreApps/dataStructures/DataStructures/bin/Debug/netcoreapp3.1/DataStructures.pdb
-/Users/gbubemismith/Documents/coreApps/dataStructures/DataStructures/obj/Debug/netcoreapp3.1/DataStructures.csprojAssemblyReference.cache
 /Users/gbubemismith/Documents/coreApps/dataStructures/DataStructures/obj/Debug/netcoreapp3.1/DataStructures.csproj.CoreCompileInputs.cache
 /Users/gbubemismith/Documents/coreApps/dataStructures/DataStructures/obj/Debug/netcoreapp3.1/DataStructures.AssemblyInfoInputs.cache
 /Users/gbubemismith/Documents/coreApps/dataStructures/DataStructures/obj/Debug/netcoreapp3.1/DataStructures.AssemblyInfo.cs
@@ -33,3 +32,5 @@
 /Users/gbubemismith/Documents/coreApps/dataStructures/DataStructures/bin/Debug/netcoreapp3.1/Microsoft.Extensions.Options.dll
 /Users/gbubemismith/Documents/coreApps/dataStructures/DataStructures/bin/Debug/netcoreapp3.1/Microsoft.Extensions.Options.ConfigurationExtensions.dll
 /Users/gbubemismith/Documents/coreApps/dataStructures/DataStructures/bin/Debug/netcoreapp3.1/Newtonsoft.Json.dll
+/Users/gbubemismith/Documents/coreApps/dataStructures/DataStructures/obj/Debug/netcoreapp3.1/DataStructures.csproj.AssemblyReference.cache
+/Users/gbubemismith/Documents/coreApps/dataStructures/DataStructures/obj/Debug/netcoreapp3.1/DataStructures.GeneratedMSBuildEditorConfig.editorconfig

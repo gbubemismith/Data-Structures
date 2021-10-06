@@ -3,6 +3,7 @@ using System.Collections.Concurrent;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Text.RegularExpressions;
 
 namespace DataStructures
 {
@@ -420,6 +421,7 @@ namespace DataStructures
             }
 
 
+
             return sb.ToString();
 
         }
@@ -542,6 +544,45 @@ namespace DataStructures
             Console.WriteLine(resp);
 
             return check;
+        }
+
+        public static string GetRecipient(string message, int position)
+        {
+            // Your code goes here
+            var strSent = message.Split('@');
+
+            if (strSent.Length < position)
+                return "";
+
+            var receipient = strSent[position];
+
+            // var badCharcters = Regex.Matches(receipient, @"^[a-zA-Z0-9_-]*$");
+            
+            var badCharcters = Regex.Replace(receipient, @"[^a-zA-Z0-9_-]", "");//receipient.Replace("[^a-zA-Z0-9_-]", "");
+
+            if(badCharcters.Count() > 0){
+                var firstBadChar = badCharcters[0];
+
+                return receipient.Substring(0);
+            }else{
+                return receipient;
+            }
+            
+
+            return "";
+            // var str = message.Split(" ");
+
+            // var set = new HashSet<string>();
+
+            // foreach (var item in str)
+            // {
+            //     if (item.Contains('@'))
+            //     {
+            //         set.Add(item.Substring(1, item.Length - 1).Trim());
+            //     }
+            // }
+
+            return "";
         }
 
 
