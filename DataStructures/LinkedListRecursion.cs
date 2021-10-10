@@ -2,7 +2,7 @@ namespace DataStructures
 {
     public class LinkedListRecursion
     {
-         private NodeR first;
+        private NodeR first;
         private NodeR last;
 
         public LinkedListRecursion()

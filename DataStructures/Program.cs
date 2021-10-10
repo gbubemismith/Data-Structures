@@ -9,7 +9,19 @@ namespace DataStructures
     {
         static void Main(string[] args)
         {
+            var tree = new Tree();
+            tree.insert(7);
+            tree.insert(4);
+            tree.insert(9);
+            tree.insert(1);
+            tree.insert(6);
+            tree.insert(8);
+            tree.insert(10);
 
+            tree.TraversePreOrder();
+
+
+            // var check = linkedList.ToArray();
 
             //array to test with
             int[] arr = { 5, 7, 1, 2, 8, 4, 3 };
@@ -17,7 +29,7 @@ namespace DataStructures
 
             // var check = StringQuestions.GetRecipient("@User_One @UserABC! Have you seen this from @Userxyz?", 2);
 
-            var check = ArrayQuestions.TargetSum(10, arr);
+            // var check = ArrayQuestions.TargetSum(10, arr);
 
             // var check = StringQuestions.codeHere("Four score and seven years ago our fathers brought forth upon this continent a new nation, conceived in liberty and dedicated to the proposition that all men are created equal");
 
@@ -31,7 +43,7 @@ namespace DataStructures
             // Console.WriteLine($"Result {string.Join(',',check)}");
 
 
-            Console.WriteLine($"Result {check}");
+            // Console.WriteLine($"Result {check}");
         }
     }
 }

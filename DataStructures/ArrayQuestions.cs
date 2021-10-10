@@ -315,9 +315,12 @@ namespace DataStructures
             return tripletsList;
         }
 
-        public static int Test(char[] arr)
+        public static int Test(int n)
         {
-            return -1;
+            if (n == 0)
+                return 1;
+
+            return n * Test(n - 1);
         }
 
         public static bool ContainsDuplicateII(int[] nums, int k)

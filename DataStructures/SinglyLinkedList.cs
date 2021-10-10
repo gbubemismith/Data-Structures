@@ -9,32 +9,36 @@ namespace DataStructures
         private Node last;
         private int size;
 
-        public void AddLast(int item) 
+        public void AddLast(int item)
         {
             var node = new Node(item);
 
-            if (IsEmpty()) {
+            if (IsEmpty())
+            {
                 first = node;
                 last = node;
             }
-            else { 
+            else
+            {
                 last.next = node;
                 last = node;
             }
 
             size++;
-            
+
         }
 
-        public void AddFirst(int item) 
+        public void AddFirst(int item)
         {
             var node = new Node(item);
 
-            if (IsEmpty()) {
+            if (IsEmpty())
+            {
                 first = node;
                 last = node;
             }
-            else {
+            else
+            {
                 node.next = first;
                 first = node;
             }
@@ -42,13 +46,14 @@ namespace DataStructures
             size++;
         }
 
-        public int IndexOf(int item) 
+        public int IndexOf(int item)
         {
             var index = 0;
 
             var current = first;
 
-            while(current != null) {
+            while (current != null)
+            {
 
                 if (current.value == item)
                 {
@@ -63,7 +68,7 @@ namespace DataStructures
 
         }
 
-        public bool Contains(int item) 
+        public bool Contains(int item)
         {
 
             return IndexOf(item) != -1;
@@ -81,14 +86,15 @@ namespace DataStructures
             if (IsEmpty())
                 throw new InvalidOperationException();
 
-            if (first == last) {
+            if (first == last)
+            {
                 first = last = null;
             }
             else
             {
-                 var second = first.next;
+                var second = first.next;
                 first.next = null;
-                first = second;    
+                first = second;
 
             }
 
@@ -104,10 +110,11 @@ namespace DataStructures
             if (IsEmpty())
                 throw new InvalidOperationException();
 
-            if (first == last) {
+            if (first == last)
+            {
                 first = last = null;
             }
-            else 
+            else
             {
                 var previous = GetPrevious(last);
 
@@ -155,7 +162,8 @@ namespace DataStructures
 
             var current = first.next; //40
 
-            while (current != null){
+            while (current != null)
+            {
 
                 var next = current.next; //20 //25
                 current.next = previous; //10 //
@@ -170,7 +178,7 @@ namespace DataStructures
 
         }
 
-        public int GetKthFromTheEnd(int k) 
+        public int GetKthFromTheEnd(int k)
         {
             // 0      1    2      3  
             //[10 -> 40 -> 20 -> 25]
@@ -183,15 +191,18 @@ namespace DataStructures
             var a = first;
             var b = first;
 
-            for (int i = 0; i < k - 1; i++) {
+            for (int i = 0; i < k - 1; i++)
+            {
                 b = b.next; //40 i
-                if (b == null) {
+                if (b == null)
+                {
                     throw new ArgumentOutOfRangeException();
                 }
             }
 
 
-            while (b != last) {
+            while (b != last)
+            {
                 a = a.next;
                 b = b.next;
             }
@@ -233,7 +244,8 @@ namespace DataStructures
 
             int count = 1;
 
-            while (count < position) {
+            while (count < position)
+            {
                 current = current.next; //13
                 count++;
             }
@@ -276,6 +288,61 @@ namespace DataStructures
             return false;
 
         }
+
+        public static Node MergerTwoSorted(SinglyLinkedList l1, SinglyLinkedList l2)
+        {
+            var mergedList = new Node(-1);
+            var head = mergedList;
+
+            var list1 = l1.first;
+            var list2 = l2.first;
+
+            while (list1 != null && list2 != null)
+            {
+                if (list1.value < list2.value)
+                {
+                    mergedList.next = list1;
+                    list1 = list1.next;
+                }
+                else
+                {
+                    mergedList.next = list2;
+                    list2 = list2.next;
+                }
+
+                //move to next
+                mergedList = mergedList.next;
+            }
+
+            if (list1 != null)
+            {
+                mergedList.next = list1;
+            }
+            else
+            {
+                mergedList.next = list2;
+            }
+
+            return head.next;
+
+        }
+        public int TestPractice(int k)
+        {
+            var a = first;
+            var b = first;
+
+            //get distance between two pointers
+            for (int i = 0; i < k - 1; i++)
+                b = b.next;
+
+            while (b != last)
+            {
+                a = a.next;
+                b = b.next;
+            }
+
+            return a.value;
+        }
         private Node GetPrevious(Node node)
         {
             var current = first;
@@ -289,8 +356,8 @@ namespace DataStructures
 
             return null;
         }
-  
-        private bool IsEmpty() 
+
+        private bool IsEmpty()
         {
 
             return first == null;
@@ -308,6 +375,6 @@ namespace DataStructures
 
         }
 
-       
+
     }
 }
